@@ -101,7 +101,7 @@ public Action:OnTakeDamage(victim, &attacker, &inflictor, &Float:damage, &damage
     {
         decl Float:vPos[3];
         GetClientAbsOrigin(attacker, vPos);
-        PushPlayer(victim, vPos, GetConVarFloat(g_Cvar_Force), false);
+        PushPlayer(victim, vPos, GetConVarFloat(g_Cvar_Force), true);
         EmitSoundToAll(g_HitSounds[GetRandomInt(0, HIT_SOUNDS_MAX - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_GUNFIRE, SND_NOFLAGS, SNDVOL_NORMAL);
         EmitSoundToAll(g_YellSounds[GetRandomInt(0, YELL_SOUNDS_MAX - 1)], victim, SNDCHAN_AUTO, SNDLEVEL_GUNFIRE, SND_NOFLAGS, SNDVOL_NORMAL);
 
