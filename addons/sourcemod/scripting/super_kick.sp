@@ -15,7 +15,7 @@
 #include <sdkhooks>
 
 #define PLUGIN_VERSION "0.1"
-#define PLUGIN_NAME "Super Kick"
+#define PLUGIN_NAME "[FoF] Super Kick"
 
 public Plugin:myinfo =
 {
@@ -23,7 +23,7 @@ public Plugin:myinfo =
     author = "CrimsonTautology",
     version = PLUGIN_VERSION,
     description = "Kick people very far",
-    url = "https://github.com/CrimsonTautology/sm_super_kick_fof"
+    url = "https://github.com/CrimsonTautology/sm_super_kick"
 };
 
 #define HIT_SOUNDS_MAX 9
@@ -102,8 +102,8 @@ public Action:OnTakeDamage(victim, &attacker, &inflictor, &Float:damage, &damage
         decl Float:vPos[3];
         GetClientAbsOrigin(attacker, vPos);
         PushPlayer(victim, vPos, GetConVarFloat(g_Cvar_Force), true);
-        EmitSoundToAll(g_HitSounds[GetRandomInt(0, HIT_SOUNDS_MAX - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_GUNFIRE, SND_NOFLAGS, SNDVOL_NORMAL);
-        EmitSoundToAll(g_YellSounds[GetRandomInt(0, YELL_SOUNDS_MAX - 1)], victim, SNDCHAN_AUTO, SNDLEVEL_GUNFIRE, SND_NOFLAGS, SNDVOL_NORMAL);
+        EmitSoundToAll(g_HitSounds[GetRandomInt(0, HIT_SOUNDS_MAX - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, SNDVOL_NORMAL);
+        EmitSoundToAll(g_YellSounds[GetRandomInt(0, YELL_SOUNDS_MAX - 1)], victim, SNDCHAN_VOICE, SNDLEVEL_SCREAMING, SND_NOFLAGS, SNDVOL_NORMAL);
 
     }
 
