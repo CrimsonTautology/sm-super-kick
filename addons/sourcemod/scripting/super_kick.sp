@@ -63,6 +63,8 @@ public OnPluginStart()
             SDKHook(i, SDKHook_OnTakeDamage, OnTakeDamage);
         }
     }
+
+    AutoExecConfig();
 }
 
 public OnMapStart()
@@ -102,8 +104,8 @@ public Action:OnTakeDamage(victim, &attacker, &inflictor, &Float:damage, &damage
         decl Float:vPos[3];
         GetClientAbsOrigin(attacker, vPos);
         PushPlayer(victim, vPos, GetConVarFloat(g_Cvar_Force), true);
-        EmitSoundToAll(g_HitSounds[GetRandomInt(0, HIT_SOUNDS_MAX - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_NORMAL, SND_NOFLAGS, SNDVOL_NORMAL);
-        EmitSoundToAll(g_YellSounds[GetRandomInt(0, YELL_SOUNDS_MAX - 1)], victim, SNDCHAN_VOICE, SNDLEVEL_SCREAMING, SND_NOFLAGS, SNDVOL_NORMAL);
+        EmitSoundToAll(g_HitSounds[GetRandomInt(0, HIT_SOUNDS_MAX - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_TRAIN, SND_NOFLAGS, SNDVOL_NORMAL);
+        EmitSoundToAll(g_YellSounds[GetRandomInt(0, YELL_SOUNDS_MAX - 1)], victim, SNDCHAN_AUTO, SNDLEVEL_SCREAMING, SND_NOFLAGS, SNDVOL_NORMAL);
 
     }
 
