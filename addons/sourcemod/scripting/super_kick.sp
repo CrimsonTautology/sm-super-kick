@@ -99,11 +99,14 @@ public Action:OnTakeDamage(victim, &attacker, &inflictor, &Float:damage, &damage
     //LogMessage("Event_PlayerHurt: %d -> %d inflictor=%d for %f(%d) damage with %d", attacker, victim, inflictor, damage, damagetype, weapon);//TODO
     if(weapon == -1 && damagetype == 268435456)
     {
+        new pitch1 = GetRandomInt(85, 110);
+        new pitch2 = GetRandomInt(85, 110);
+
         decl Float:vPos[3];
         GetClientAbsOrigin(attacker, vPos);
         PushPlayer(victim, vPos, GetConVarFloat(g_Cvar_Force), true);
-        EmitSoundToAll(g_HitSounds[GetRandomInt(0, sizeof(g_HitSounds) - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_TRAIN, SND_NOFLAGS, SNDVOL_NORMAL);
-        EmitSoundToAll(g_YellSounds[GetRandomInt(0, sizeof(g_YellSounds) - 1)], victim, SNDCHAN_AUTO, SNDLEVEL_SCREAMING, SND_NOFLAGS, SNDVOL_NORMAL);
+        EmitSoundToAll(g_HitSounds[GetRandomInt(0, sizeof(g_HitSounds) - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_TRAIN, SND_CHANGEPITCH, SNDVOL_NORMAL, pitch1);
+        EmitSoundToAll(g_YellSounds[GetRandomInt(0, sizeof(g_YellSounds) - 1)], victim, SNDCHAN_AUTO, SNDLEVEL_SCREAMING, SND_CHANGEPITCH, SNDVOL_NORMAL, pitch2);
 
     }
 
