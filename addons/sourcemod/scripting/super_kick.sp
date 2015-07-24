@@ -36,13 +36,13 @@ new String:g_HitSounds[][] =
     "ambient/explosions/explode_6.wav",
     "ambient/explosions/explode_7.wav",
     "ambient/explosions/explode_8.wav",
-    "ambient/explosions/explode_9.wav"
+    "ambient/explosions/explode_9.wav",
 };
 
 new String:g_YellSounds[][] =
 {
     "player/fallscream1.wav",
-    "player/fallscream2.wav"
+    "player/fallscream2.wav",
 };
 
 new Handle:g_Cvar_Enabled = INVALID_HANDLE;
