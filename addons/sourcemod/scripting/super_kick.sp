@@ -26,8 +26,6 @@ public Plugin:myinfo =
     url = "https://github.com/CrimsonTautology/sm_super_kick"
 };
 
-#define HIT_SOUNDS_MAX 9
-#define YELL_SOUNDS_MAX 2
 new String:g_HitSounds[][] =
 {
     "ambient/explosions/explode_1.wav",
@@ -69,12 +67,12 @@ public OnPluginStart()
 
 public OnMapStart()
 {
-    for(new i=0; i < HIT_SOUNDS_MAX; i++)
+    for(new i=0; i < sizeof(g_HitSounds); i++)
     {
         PrecacheSound(g_HitSounds[i]);
     }
 
-    for(new i=0; i < YELL_SOUNDS_MAX; i++)
+    for(new i=0; i < sizeof(g_YellSounds); i++)
     {
         PrecacheSound(g_YellSounds[i]);
     }
@@ -104,8 +102,8 @@ public Action:OnTakeDamage(victim, &attacker, &inflictor, &Float:damage, &damage
         decl Float:vPos[3];
         GetClientAbsOrigin(attacker, vPos);
         PushPlayer(victim, vPos, GetConVarFloat(g_Cvar_Force), true);
-        EmitSoundToAll(g_HitSounds[GetRandomInt(0, HIT_SOUNDS_MAX - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_TRAIN, SND_NOFLAGS, SNDVOL_NORMAL);
-        EmitSoundToAll(g_YellSounds[GetRandomInt(0, YELL_SOUNDS_MAX - 1)], victim, SNDCHAN_AUTO, SNDLEVEL_SCREAMING, SND_NOFLAGS, SNDVOL_NORMAL);
+        EmitSoundToAll(g_HitSounds[GetRandomInt(0, sizeof(g_HitSounds) - 1)], attacker, SNDCHAN_AUTO, SNDLEVEL_TRAIN, SND_NOFLAGS, SNDVOL_NORMAL);
+        EmitSoundToAll(g_YellSounds[GetRandomInt(0, sizeof(g_YellSounds) - 1)], victim, SNDCHAN_AUTO, SNDLEVEL_SCREAMING, SND_NOFLAGS, SNDVOL_NORMAL);
 
     }
 
