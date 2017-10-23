@@ -50,7 +50,7 @@ new Handle:g_Cvar_Force = INVALID_HANDLE;
 
 public OnPluginStart()
 {
-    CreateConVar("sm_super_kick_version", PLUGIN_VERSION, PLUGIN_NAME, FCVAR_PLUGIN | FCVAR_SPONLY | FCVAR_REPLICATED | FCVAR_NOTIFY | FCVAR_DONTRECORD);
+    CreateConVar("sm_super_kick_version", PLUGIN_VERSION, PLUGIN_NAME, FCVAR_SPONLY | FCVAR_REPLICATED | FCVAR_NOTIFY | FCVAR_DONTRECORD);
     g_Cvar_Enabled = CreateConVar("sm_super_kick", "1", "Enabled");
     g_Cvar_Force = CreateConVar("sm_super_kick_force", "800.0", "Force applied by a kick");
 
